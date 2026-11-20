@@ -6,13 +6,17 @@
 <h3 align="center"><code>quint-0s</code> &nbsp;·&nbsp; A Modular, Local-First Cybersecurity Desktop OS</h3>
 
 <p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&pause=1000&color=00E5FF&center=true&vCenter=true&width=600&lines=Scanning+dependencies+for+CVEs...;Detecting+hardcoded+secrets...;Blocking+SSRF+to+cloud+metadata...;Parsing+Terraform+for+misconfigs...;Blast+Radius+computed+%E2%80%94+78%2F100+CRITICAL" alt="Typing animation" />
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/github/last-commit/nikhilmanvi360/quint-0s-portfolio?style=flat-square&color=00e5ff&label=Last+Commit" />
   &nbsp;
   <img src="https://img.shields.io/github/commit-activity/m/nikhilmanvi360/quint-0s-portfolio?style=flat-square&color=6366f1&label=Commits%2FMonth" />
   &nbsp;
   <img src="https://img.shields.io/github/repo-size/nikhilmanvi360/quint-0s-portfolio?style=flat-square&color=10b981&label=Repo+Size" />
   &nbsp;
-  <img src="https://img.shields.io/badge/Contracts-12%20Passed%20%7C%20Pytest-10b981?style=flat-square&logo=pytest" />
+  <img src="https://img.shields.io/badge/114%20Tests-Private%20Suite-10b981?style=flat-square&logo=pytest" />
   &nbsp;
   <img src="https://img.shields.io/badge/License-Proprietary%20Portfolio-71717a?style=flat-square" />
 </p>
@@ -22,21 +26,41 @@
 </p>
 
 <p align="center">
+  <img src="https://img.shields.io/badge/Covers-Supply%20Chain-3b82f6?style=flat-square" />
+  &nbsp;
+  <img src="https://img.shields.io/badge/Covers-Secret%20Leaks-a855f7?style=flat-square" />
+  &nbsp;
+  <img src="https://img.shields.io/badge/Covers-Container%20Hardening-ef4444?style=flat-square" />
+  &nbsp;
+  <img src="https://img.shields.io/badge/Covers-API%20Security-ec4899?style=flat-square" />
+  &nbsp;
+  <img src="https://img.shields.io/badge/Covers-Cloud%20Posture-10b981?style=flat-square" />
+  &nbsp;
+  <img src="https://img.shields.io/badge/Covers-Blast%20Radius-00e5ff?style=flat-square" />
+</p>
+
+<p align="center">
   <a href="#-what-is-quintos">What is it?</a> &nbsp;·&nbsp;
   <a href="#-by-the-numbers">Numbers</a> &nbsp;·&nbsp;
   <a href="#-five-security-modules">The 5 Modules</a> &nbsp;·&nbsp;
   <a href="#-visual-showcase">Showcase</a> &nbsp;·&nbsp;
   <a href="#-system-architecture">Architecture</a> &nbsp;·&nbsp;
   <a href="#-engineering-deep-dives">Engineering</a> &nbsp;·&nbsp;
-  <a href="#-quintos-vs-the-field">vs The Field</a> &nbsp;·&nbsp;
-  <a href="#-test-suite">Tests</a>
+  <a href="#-what-a-real-audit-looks-like">Live Demo</a> &nbsp;·&nbsp;
+  <a href="#-quintos-vs-the-field">vs The Field</a>
 </p>
 
 ---
 
 > **📌 Public Portfolio Showcase** — Core scanning engines and detection heuristics live in a private repository. This repo exposes the system architecture, engineering contracts, threat models, and UI screenshots for professional evaluation.
+>
+> 📐 [Architecture & Threat Model](ARCHITECTURE.md) &nbsp;·&nbsp; 📜 [Core Contracts](contracts/) &nbsp;·&nbsp; 🧪 [Schema Tests](tests/)
 
 ---
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0,8,16,0,8,16&height=2&section=header" width="100%" />
+</p>
 
 ## 🧠 What is QuintOS?
 
@@ -50,6 +74,9 @@ Security tools are almost always isolated — you run a secret scanner here, a d
 | **Multi-Vector** | Five attack surfaces audited simultaneously and cross-correlated. |
 | **Deterministic Scoring** | Bounded 0–100 risk score based on severity × confidence × exposure. |
 | **Desktop OS UX** | Floating windows, dock, wallpaper, drag/snap/z-index — not a web form. |
+
+> [!CAUTION]
+> **What QuintOS is NOT** — Not a managed SaaS. Not a firewall or WAF. Not a cloud-hosted scanner. It runs entirely on your machine and is intended for security engineers who want full control over their audit tooling without sending code to third-party services.
 
 <br/>
 
@@ -77,50 +104,45 @@ Security tools are almost always isolated — you run a secret scanner here, a d
 
 <table>
   <tr>
-    <td align="center" width="20%">
-      <strong>🔵 M01</strong><br/>
-      <strong>SupplyWatch</strong><br/>
-      <sub>:5173 / :8000</sub>
+    <td align="center" width="22%">
+      <img src="https://img.shields.io/badge/M01-SupplyWatch-3b82f6?style=for-the-badge" /><br/>
+      <sub>:5173 UI &nbsp;·&nbsp; :8000 API</sub>
     </td>
     <td>
       PyPI &amp; npm dependency auditing against the OSV database. Detects known CVEs across direct and transitive trees. Flags typosquatting candidates using <strong>Damerau-Levenshtein edit-distance</strong> against the top 10,000 package names.
     </td>
   </tr>
   <tr>
-    <td align="center" width="20%">
-      <strong>🟣 M02</strong><br/>
-      <strong>SecretWatch</strong><br/>
-      <sub>:5174 / :8001</sub>
+    <td align="center" width="22%">
+      <img src="https://img.shields.io/badge/M02-SecretWatch-a855f7?style=for-the-badge" /><br/>
+      <sub>:5174 UI &nbsp;·&nbsp; :8001 API</sub>
     </td>
     <td>
       Detects leaked credentials, API keys, and private tokens using pattern matching combined with <strong>Shannon entropy scoring</strong>. An AST-level false-positive filter eliminates commit hashes and UUIDs before escalating alerts.
     </td>
   </tr>
   <tr>
-    <td align="center" width="20%">
-      <strong>🔴 M03</strong><br/>
-      <strong>InfraGuard</strong><br/>
-      <sub>:5175 / :8002</sub>
+    <td align="center" width="22%">
+      <img src="https://img.shields.io/badge/M03-InfraGuard-ef4444?style=for-the-badge" /><br/>
+      <sub>:5175 UI &nbsp;·&nbsp; :8002 API</sub>
     </td>
     <td>
       Static analysis engine for <code>Dockerfile</code>, <code>docker-compose.yml</code>, and Kubernetes manifests. Checks non-root user enforcement, read-only root filesystems, privilege escalation vectors, and CIS Benchmark compliance.
     </td>
   </tr>
   <tr>
-    <td align="center" width="20%">
-      <strong>🩷 M04</strong><br/>
-      <strong>APISentry</strong><br/>
-      <sub>:5176 / :8003</sub>
+    <td align="center" width="22%">
+      <img src="https://img.shields.io/badge/M04-APISentry-ec4899?style=for-the-badge" /><br/>
+      <sub>:5176 UI &nbsp;·&nbsp; :8003 API</sub>
     </td>
     <td>
       Live HTTP security header auditor (HSTS, CSP, CORS, X-Frame-Options, TLS version). Built with a <strong>zero-trust SSRF firewall</strong> that pre-resolves DNS and blocks all RFC 1918 subnets and cloud metadata endpoints before initiating any outbound probe.
     </td>
   </tr>
   <tr>
-    <td align="center" width="20%">
-      <strong>🟢 M05</strong><br/>
-      <strong>CloudPosture</strong><br/>
-      <sub>:5177 / :8004</sub>
+    <td align="center" width="22%">
+      <img src="https://img.shields.io/badge/M05-CloudPosture-10b981?style=for-the-badge" /><br/>
+      <sub>:5177 UI &nbsp;·&nbsp; :8004 API</sub>
     </td>
     <td>
       Infrastructure-as-Code posture verification across <strong>Terraform HCL</strong>, AWS CloudFormation, and Azure ARM templates. Flags public storage buckets, over-privileged IAM roles, missing encryption, and open security group rules.
@@ -150,36 +172,36 @@ Security tools are almost always isolated — you run a secret scanner here, a d
   <tr>
     <td align="center">
       <img src="screenshots/supplywatch.png" width="100%" alt="SupplyWatch"/><br/>
-      <strong>🔵 M01 — SupplyWatch</strong><br/>
+      <img src="https://img.shields.io/badge/M01-SupplyWatch-3b82f6?style=flat-square" /><br/>
       <sub>Package vulnerability scanner &amp; typosquatting detection</sub>
     </td>
     <td align="center">
       <img src="screenshots/secretwatch.png" width="100%" alt="SecretWatch"/><br/>
-      <strong>🟣 M02 — SecretWatch</strong><br/>
+      <img src="https://img.shields.io/badge/M02-SecretWatch-a855f7?style=flat-square" /><br/>
       <sub>Entropy-based credential &amp; secret leak detection</sub>
     </td>
   </tr>
   <tr>
     <td align="center">
       <img src="screenshots/infraguard.png" width="100%" alt="InfraGuard"/><br/>
-      <strong>🔴 M03 — InfraGuard</strong><br/>
+      <img src="https://img.shields.io/badge/M03-InfraGuard-ef4444?style=flat-square" /><br/>
       <sub>Container &amp; Kubernetes static policy analysis</sub>
     </td>
     <td align="center">
       <img src="screenshots/apisentry.png" width="100%" alt="APISentry"/><br/>
-      <strong>🩷 M04 — APISentry</strong><br/>
+      <img src="https://img.shields.io/badge/M04-APISentry-ec4899?style=flat-square" /><br/>
       <sub>Live API header audit with SSRF containment</sub>
     </td>
   </tr>
   <tr>
     <td align="center">
       <img src="screenshots/cloudposture.png" width="100%" alt="CloudPosture"/><br/>
-      <strong>🟢 M05 — CloudPosture</strong><br/>
+      <img src="https://img.shields.io/badge/M05-CloudPosture-10b981?style=flat-square" /><br/>
       <sub>Terraform / CloudFormation IaC misconfig scanner</sub>
     </td>
     <td align="center">
       <img src="screenshots/blast-radius.png" width="100%" alt="Blast Radius Graph"/><br/>
-      <strong>🩵 Blast Radius Graph</strong><br/>
+      <img src="https://img.shields.io/badge/Hub-Blast%20Radius%20Graph-00e5ff?style=flat-square" /><br/>
       <sub>Cross-vector topological attack correlation</sub>
     </td>
   </tr>
@@ -380,38 +402,6 @@ Pipeline verdict:    BLOCKED — resolve CRITICAL findings before merge
 
 ---
 
-## 🧪 Test Suite
-
-Showcased contract & SSRF boundary tests run cleanly against the public interfaces:
-
-```bash
-$ cd docs/showcase-portfolio && pytest -v
-
-============================= test session starts =============================
-platform win32 — Python 3.14, pytest-8.3.4
-
-tests/test_scanner_contracts.py::test_valid_security_finding_contract         PASSED
-tests/test_scanner_contracts.py::test_risk_score_boundary_enforcement[-1]     PASSED
-tests/test_scanner_contracts.py::test_risk_score_boundary_enforcement[101]    PASSED
-tests/test_scanner_contracts.py::test_risk_score_boundary_enforcement[250]    PASSED
-tests/test_scanner_contracts.py::test_ssrf_disallowed_targets[10.0.0.1]      PASSED
-tests/test_scanner_contracts.py::test_ssrf_disallowed_targets[192.168.1.254]  PASSED
-tests/test_scanner_contracts.py::test_ssrf_disallowed_targets[172.16.5.10]   PASSED
-tests/test_scanner_contracts.py::test_ssrf_disallowed_targets[169.254.169.254] PASSED
-tests/test_scanner_contracts.py::test_ssrf_disallowed_targets[metadata.google.internal] PASSED
-tests/test_scanner_contracts.py::test_ssrf_disallowed_targets[localhost]      PASSED
-tests/test_scanner_contracts.py::test_ssrf_disallow_unsupported_schemes       PASSED
-tests/test_scanner_contracts.py::test_audit_target_default_values             PASSED
-
-============================= 12 passed in 0.14s ==============================
-```
-
-> The full private test suite (all 5 modules + gateway) covers **114 tests** — available on request during technical review.
-
-<br/>
-
----
-
 ## 👤 Author
 
 <p align="center">
@@ -432,6 +422,10 @@ tests/test_scanner_contracts.py::test_audit_target_default_values             PA
 </p>
 
 <br/>
+
+<p align="center">
+  <i>⭐ Star this repo if QuintOS impressed you — it helps others find the project.</i>
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/%E2%AC%A1%20QUINTOS-CYBER%20COMMAND%20CENTER-00e5ff?style=for-the-badge" />
