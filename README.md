@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="screenshots/wallpaper.png" alt="QuintOS — Cyber Command Center" width="100%" />
+  <img src="https://media1.tenor.com/m/9cwaZbqsIIAAAAAC/the-quintessential-quintuplets-tqq.gif" alt="QuintOS — Cyber Command Center" width="600" />
 </p>
 
 <h1 align="center">⬡ QUINTOS — CYBER COMMAND CENTER</h1>
@@ -162,9 +162,7 @@ Security tools are almost always isolated — you run a secret scanner here, a d
 
 <p align="center">
   <strong>🖥️ Sentinel Hub — The Unified Desktop</strong><br/>
-  <a href="https://tenor.com/view/the-quintessential-quintuplets-tqq-gif-17711560458767179904">
-    <img src="https://media1.tenor.com/m/9cwaZbqsIIAAAAAC/the-quintessential-quintuplets-tqq.gif" width="100%" alt="QuintOS Command Center Desktop Demo" />
-  </a><br/>
+  <img src="screenshots/wallpaper.png" width="100%" alt="Sentinel Hub Desktop" /><br/>
   <sub>All five security modules visible as floating windows from a single command center.</sub>
 </p>
 
