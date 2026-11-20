@@ -106,7 +106,7 @@ Security tools are almost always isolated — you run a secret scanner here, a d
   <tr>
     <td align="center" width="22%">
       <img src="https://img.shields.io/badge/M01-SupplyWatch-3b82f6?style=for-the-badge" /><br/>
-      <sub>:5173 UI &nbsp;·&nbsp; :8000 API</sub>
+      <sub></sub>
     </td>
     <td>
       PyPI &amp; npm dependency auditing against the OSV database. Detects known CVEs across direct and transitive trees. Flags typosquatting candidates using <strong>Damerau-Levenshtein edit-distance</strong> against the top 10,000 package names.
@@ -115,7 +115,7 @@ Security tools are almost always isolated — you run a secret scanner here, a d
   <tr>
     <td align="center" width="22%">
       <img src="https://img.shields.io/badge/M02-SecretWatch-a855f7?style=for-the-badge" /><br/>
-      <sub>:5174 UI &nbsp;·&nbsp; :8001 API</sub>
+      <sub></sub>
     </td>
     <td>
       Detects leaked credentials, API keys, and private tokens using pattern matching combined with <strong>Shannon entropy scoring</strong>. An AST-level false-positive filter eliminates commit hashes and UUIDs before escalating alerts.
@@ -124,7 +124,7 @@ Security tools are almost always isolated — you run a secret scanner here, a d
   <tr>
     <td align="center" width="22%">
       <img src="https://img.shields.io/badge/M03-InfraGuard-ef4444?style=for-the-badge" /><br/>
-      <sub>:5175 UI &nbsp;·&nbsp; :8002 API</sub>
+      <sub></sub>
     </td>
     <td>
       Static analysis engine for <code>Dockerfile</code>, <code>docker-compose.yml</code>, and Kubernetes manifests. Checks non-root user enforcement, read-only root filesystems, privilege escalation vectors, and CIS Benchmark compliance.
@@ -133,7 +133,7 @@ Security tools are almost always isolated — you run a secret scanner here, a d
   <tr>
     <td align="center" width="22%">
       <img src="https://img.shields.io/badge/M04-APISentry-ec4899?style=for-the-badge" /><br/>
-      <sub>:5176 UI &nbsp;·&nbsp; :8003 API</sub>
+      <sub></sub>
     </td>
     <td>
       Live HTTP security header auditor (HSTS, CSP, CORS, X-Frame-Options, TLS version). Built with a <strong>zero-trust SSRF firewall</strong> that pre-resolves DNS and blocks all RFC 1918 subnets and cloud metadata endpoints before initiating any outbound probe.
@@ -142,7 +142,7 @@ Security tools are almost always isolated — you run a secret scanner here, a d
   <tr>
     <td align="center" width="22%">
       <img src="https://img.shields.io/badge/M05-CloudPosture-10b981?style=for-the-badge" /><br/>
-      <sub>:5177 UI &nbsp;·&nbsp; :8004 API</sub>
+      <sub></sub>
     </td>
     <td>
       Infrastructure-as-Code posture verification across <strong>Terraform HCL</strong>, AWS CloudFormation, and Azure ARM templates. Flags public storage buckets, over-privileged IAM roles, missing encryption, and open security group rules.
