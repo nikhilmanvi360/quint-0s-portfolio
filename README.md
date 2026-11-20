@@ -1,223 +1,385 @@
-# 🛡️ QuintOS (`quint-0s`) — Cyber Command Center
-### *A Modular, Local-First Cybersecurity Desktop OS & Multi-Vector Audit Platform*
-
 <p align="center">
-  <img src="screenshots/wallpaper.png" alt="QuintOS Cyber Command Center Wallpaper" width="100%" />
+  <img src="screenshots/wallpaper.png" alt="QuintOS — Cyber Command Center" width="100%" />
 </p>
 
-[![Architecture](https://img.shields.io/badge/Architecture-Modular%20Microservices-00e5ff?style=for-the-badge&logo=fastapi)](ARCHITECTURE.md)
-[![Frontend](https://img.shields.io/badge/Frontend-React%2018%20%7C%20Tailwind-3b82f6?style=for-the-badge&logo=react)](#-visual-showcase--desktop-experience)
-[![Test Suite](https://img.shields.io/badge/Contracts-12%20Passed%20%7C%20Pytest-10b981?style=for-the-badge&logo=pytest)](tests)
-[![Security Posture](https://img.shields.io/badge/SSRF%20Guard-Enforced%20RFC1918-ec4899?style=for-the-badge&logo=shield)](contracts/ssrf_guard.py)
-[![License](https://img.shields.io/badge/License-Proprietary%20%2F%20Portfolio%20Evaluation-zinc?style=for-the-badge)](LICENSE)
+<h1 align="center">⬡ QUINTOS — CYBER COMMAND CENTER</h1>
+<h3 align="center"><code>quint-0s</code> &nbsp;·&nbsp; A Modular, Local-First Cybersecurity Desktop OS</h3>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Stack-FastAPI%20%7C%20React%2018%20%7C%20Python%203.11-00e5ff?style=flat-square" />
+  &nbsp;
+  <img src="https://img.shields.io/badge/Architecture-6%20Microservices%20%7C%20Docker%20Compose-6366f1?style=flat-square" />
+  &nbsp;
+  <img src="https://img.shields.io/badge/Contracts-12%20Passed%20%7C%20Pytest-10b981?style=flat-square&logo=pytest" />
+  &nbsp;
+  <img src="https://img.shields.io/badge/Security-SSRF%20Hardened%20%7C%20RFC%201918-ec4899?style=flat-square" />
+  &nbsp;
+  <img src="https://img.shields.io/badge/License-Proprietary%20Portfolio-71717a?style=flat-square" />
+</p>
+
+<p align="center">
+  <a href="#-what-is-quintos">What is it?</a> &nbsp;·&nbsp;
+  <a href="#-five-security-modules">The 5 Modules</a> &nbsp;·&nbsp;
+  <a href="#-visual-showcase">Visual Showcase</a> &nbsp;·&nbsp;
+  <a href="#-system-architecture">Architecture</a> &nbsp;·&nbsp;
+  <a href="#-engineering-deep-dives">Engineering</a> &nbsp;·&nbsp;
+  <a href="#-test-suite">Tests</a>
+</p>
 
 ---
 
-> [!NOTE]  
-> **Public Portfolio Showcase:** This repository serves as the public architecture, system design, and interface showcase for **QuintOS**. The core scanning engines and heuristic detection models are maintained in a private repository to protect proprietary intellectual property and prevent malicious reuse. 
-> 
-> Explore the [System Architecture](#-system-architecture), [Technical Engineering Highlights](#-technical-engineering-highlights), and [Curated Core Interfaces](#-curated-code-snippets--contracts) below.
+> **📌 Public Portfolio Showcase** — The core scanning engines and detection heuristics live in a private repository. This repo exposes the system architecture, engineering contracts, threat models, and UI screenshots for professional evaluation.
 
 ---
 
-## 🎯 Executive Summary & Mission
+## 🧠 What is QuintOS?
 
-**QuintOS** is a local-first, modular cybersecurity workstation that reimagines security tooling as an integrated desktop operating system rather than a fragmented set of disconnected CLI scripts or web dashboards.
+**QuintOS is not a dashboard. It's a cybersecurity operating system.**
 
-### Core Philosophy
-1. **Zero Data Exfiltration (Local-First):** Security audits run locally. Proprietary source code, configuration files, and credentials never touch third-party cloud analytics or SaaS vendors.
-2. **Unified Blast Radius Analysis:** Rather than siloing alerts, findings across supply chains, hardcoded secrets, container infrastructure, live APIs, and cloud templates are correlated into a single interactive topological attack-graph.
-3. **Deterministic Risk Scoring:** Replaces subjective alert numbers with a bounded 0–100 composite risk matrix factoring severity, confidence, and asset exposure.
+Security tools are almost always isolated — you run a secret scanner here, a dependency checker there, and stitch everything together manually. QuintOS eliminates that by unifying five specialized security domains into a single interactive desktop shell, where findings from every module feed a **live Blast Radius graph** showing your complete attack surface at a glance.
 
----
+| | |
+|---|---|
+| **Local-First** | Nothing leaves your machine. No cloud, no SaaS, no telemetry. |
+| **Multi-Vector** | Five attack surfaces audited simultaneously and correlated. |
+| **Deterministic Scoring** | Bounded 0–100 risk score based on severity × confidence × exposure. |
+| **Desktop OS UX** | Floating windows, dock, wallpaper, drag/snap/z-index — not a web form. |
 
-## 📸 Visual Showcase & Desktop Experience
-
-*QuintOS pairs a cyberpunk dark mode aesthetic (`#080b10`) with window management (drag, snap, minimize, maximize, and dynamic z-index stacking).*
-
-| **Sentinel Hub — Unified Cyber Command Desktop** |
-|:---:|
-| ![Sentinel Hub Desktop](screenshots/wallpaper.png) |
-| *Unified OS desktop running floating micro-modules, blast radius graph, and live health monitors.* |
-
-<br>
-
-| **Module 01: SupplyWatch (`:5173`)** | **Module 02: SecretWatch (`:5174`)** |
-|:---:|:---:|
-| ![SupplyWatch](screenshots/supplywatch.png) | ![SecretWatch](screenshots/secretwatch.png) |
-| *PyPI/npm dependency vulnerability tracking and typosquatting detection via Levenshtein heuristics.* | *High-entropy token analysis and pattern matching with AST false-positive filters.* |
-
-<br>
-
-| **Module 03: InfraGuard (`:5175`)** | **Module 04: APISentry (`:5176`)** |
-|:---:|:---:|
-| ![InfraGuard](screenshots/infraguard.png) | ![APISentry](screenshots/apisentry.png) |
-| *Static container analysis (Dockerfile, K8s, Compose) checking non-root execution and privilege escalation.* | *Live security header audit, CORS misconfiguration scanner, and SSRF containment engine.* |
-
-<br>
-
-| **Module 05: CloudPosture (`:5177`)** | **Blast Radius Graph — Cross-Vector Correlation** |
-|:---:|:---:|
-| ![CloudPosture](screenshots/cloudposture.png) | ![Blast Radius Graph](screenshots/blast-radius.png) |
-| *IaC posture verification across Terraform HCL, AWS CloudFormation, and Azure ARM templates.* | *Interactive topological graph tracing multi-hop exploit paths from leaked keys to cloud assets.* |
+<br/>
 
 ---
 
-## 🏛️ System Architecture
+## ⬡ Five Security Modules
 
-QuintOS is built as an asynchronous microservices mesh orchestrated through a centralized gateway and visualized in a React floating-window interface.
+<table>
+  <tr>
+    <td align="center" width="20%">
+      <strong>🔵 M01</strong><br/>
+      <strong>SupplyWatch</strong><br/>
+      <sub>:5173 / :8000</sub>
+    </td>
+    <td>
+      PyPI &amp; npm dependency auditing against the OSV database. Detects known CVEs across direct and transitive trees. Flags typosquatting candidates using <strong>Damerau-Levenshtein edit-distance</strong> against the top 10,000 package names.
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="20%">
+      <strong>🟣 M02</strong><br/>
+      <strong>SecretWatch</strong><br/>
+      <sub>:5174 / :8001</sub>
+    </td>
+    <td>
+      Detects leaked credentials, API keys, and private tokens using pattern matching combined with <strong>Shannon entropy scoring</strong>. An AST-level false-positive filter eliminates commit hashes and UUIDs before escalating alerts.
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="20%">
+      <strong>🔴 M03</strong><br/>
+      <strong>InfraGuard</strong><br/>
+      <sub>:5175 / :8002</sub>
+    </td>
+    <td>
+      Static analysis engine for <code>Dockerfile</code>, <code>docker-compose.yml</code>, and Kubernetes manifests. Checks non-root user enforcement, read-only root filesystems, privilege escalation vectors, and CIS Benchmark compliance.
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="20%">
+      <strong>🩷 M04</strong><br/>
+      <strong>APISentry</strong><br/>
+      <sub>:5176 / :8003</sub>
+    </td>
+    <td>
+      Live HTTP security header auditor (HSTS, CSP, CORS, X-Frame-Options, TLS version). Built with a <strong>zero-trust SSRF firewall</strong> that pre-resolves DNS and blocks all RFC 1918 subnets and cloud metadata endpoints before initiating any outbound probe.
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="20%">
+      <strong>🟢 M05</strong><br/>
+      <strong>CloudPosture</strong><br/>
+      <sub>:5177 / :8004</sub>
+    </td>
+    <td>
+      Infrastructure-as-Code posture verification across <strong>Terraform HCL</strong>, AWS CloudFormation, and Azure ARM templates. Flags public storage buckets, over-privileged IAM roles, missing encryption, and open security group rules.
+    </td>
+  </tr>
+</table>
+
+<br/>
+
+---
+
+## 📸 Visual Showcase
+
+> Every window is draggable, resizable, snappable, and independently minimizable.
+
+<br/>
+
+<p align="center">
+  <strong>🖥️ Sentinel Hub — The Unified Desktop</strong><br/>
+  <img src="screenshots/wallpaper.png" width="100%" alt="Sentinel Hub Desktop" />
+  <sub>All five security modules visible as floating windows from a single command center.</sub>
+</p>
+
+<br/>
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="screenshots/supplywatch.png" width="100%" alt="SupplyWatch"/><br/>
+      <strong>🔵 M01 — SupplyWatch</strong><br/>
+      <sub>Package vulnerability scanner &amp; typosquatting detection</sub>
+    </td>
+    <td align="center">
+      <img src="screenshots/secretwatch.png" width="100%" alt="SecretWatch"/><br/>
+      <strong>🟣 M02 — SecretWatch</strong><br/>
+      <sub>Entropy-based credential &amp; secret leak detection</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="screenshots/infraguard.png" width="100%" alt="InfraGuard"/><br/>
+      <strong>🔴 M03 — InfraGuard</strong><br/>
+      <sub>Container &amp; Kubernetes static policy analysis</sub>
+    </td>
+    <td align="center">
+      <img src="screenshots/apisentry.png" width="100%" alt="APISentry"/><br/>
+      <strong>🩷 M04 — APISentry</strong><br/>
+      <sub>Live API header audit with SSRF containment</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="screenshots/cloudposture.png" width="100%" alt="CloudPosture"/><br/>
+      <strong>🟢 M05 — CloudPosture</strong><br/>
+      <sub>Terraform / CloudFormation IaC misconfig scanner</sub>
+    </td>
+    <td align="center">
+      <img src="screenshots/blast-radius.png" width="100%" alt="Blast Radius Graph"/><br/>
+      <strong>🩵 Blast Radius Graph</strong><br/>
+      <sub>Cross-vector topological attack correlation</sub>
+    </td>
+  </tr>
+</table>
+
+<br/>
+
+---
+
+## 🏛 System Architecture
 
 ```
-                        ┌─────────────────────────────────────────────────────┐
-                        │           SENTINEL HUB  (localhost:5170)            │
-                        │     React 18 · Vite · Tailwind · Floating Windows   │
-                        │                                                     │
-                        │  ┌──────────┐  ┌──────────┐  ┌──────────────────┐  │
-                        │  │OverviewWin│  │BlastRadius│  │ActivityMonitorWin│  │
-                        │  └──────────┘  └──────────┘  └──────────────────┘  │
-                        │        ↑ moduleFindings (React State Aggregator)    │
-                        └──────────────────────────┬──────────────────────────┘
-                                                   │ Direct HTTP / SSE Event Stream
-            ┌───────────────────┬───────────────────┼───────────────────┬───────────────────┐
-            ▼                   ▼                   ▼                   ▼                   ▼
-  ┌──────────────────┐ ┌──────────────────┐ ┌──────────────────┐ ┌──────────────────┐ ┌──────────────────┐
-  │  M01 SupplyWatch │ │  M02 SecretWatch │ │  M03 InfraGuard  │ │  M04 APISentry   │ │  M05 CloudPosture│
-  │  🔵 Blue Accent  │ │  🟣 Purple Accent│ │  🔴 Red Accent   │ │  🩷 Pink Accent  │ │  🟢 Green Accent │
-  │                  │ │                  │ │                  │ │                  │ │                  │
-  │  UI  :5173       │ │  UI  :5174       │ │  UI  :5175       │ │  UI  :5176       │ │  UI  :5177       │
-  │  API :8000       │ │  API :8001       │ │  API :8002       │ │  API :8003       │ │  API :8004       │
-  │                  │ │                  │ │                  │ │                  │ │                  │
-  │  OSV & CVE Cache │ │  Entropy Engine  │ │  K8s/Docker AST  │ │  SSRF Guard + TLS│ │  IaC Misconfig   │
-  └──────────────────┘ └──────────────────┘ └──────────────────┘ └──────────────────┘ └──────────────────┘
-            ▲                   ▲                   ▲                   ▲                   ▲
-            └───────────────────┴───────────────────┼───────────────────┴───────────────────┘
-                                                    │ Reverse Proxy Aggregator
-                                         ┌──────────────────────┐
-                                         │  M06 Quint-CLI GW    │
-                                         │  FastAPI · :9000     │
-                                         │  Async Concurrency   │
-                                         └──────────────────────┘
+                        ┌──────────────────────────────────────────────┐
+                        │          SENTINEL HUB  (localhost:5170)      │
+                        │   React 18 · Vite · Tailwind · Float Windows │
+                        │                                              │
+                        │   [Overview]  [Blast Radius]  [Activity Log] │
+                        │        ↑ moduleFindings (State Aggregator)   │
+                        └─────────────────────┬────────────────────────┘
+                                              │  HTTP / SSE
+              ┌────────────┬─────────────────┼─────────────┬────────────┐
+              ▼            ▼                 ▼             ▼            ▼
+         ┌─────────┐ ┌─────────┐ ┌─────────────┐ ┌──────────┐ ┌───────────┐
+         │ M01     │ │ M02     │ │ M03         │ │ M04      │ │ M05       │
+         │ Supply  │ │ Secret  │ │ Infra       │ │ API      │ │ Cloud     │
+         │ Watch   │ │ Watch   │ │ Guard       │ │ Sentry   │ │ Posture   │
+         │ :8000   │ │ :8001   │ │ :8002       │ │ :8003    │ │ :8004     │
+         └─────────┘ └─────────┘ └─────────────┘ └──────────┘ └───────────┘
+              ▲            ▲                 ▲             ▲            ▲
+              └────────────┴─────────────────┼─────────────┴────────────┘
+                                             │  Reverse Proxy
+                                   ┌─────────────────┐
+                                   │  Quint-CLI GW   │
+                                   │  FastAPI :9000  │
+                                   └─────────────────┘
 ```
 
-### Flowchart: Asynchronous Scan Lifecycle
+**Scan Lifecycle — Parallel Async Fan-Out:**
 
 ```mermaid
 sequenceDiagram
     autonumber
-    actor Dev as Security Analyst
-    participant Hub as Sentinel Hub (UI)
-    participant GW as Quint-CLI Gateway (:9000)
-    participant M02 as SecretWatch (:8001)
-    participant M04 as APISentry (:8003)
+    actor Analyst
+    participant Hub as Sentinel Hub
+    participant GW as CLI Gateway :9000
+    participant M02 as SecretWatch
+    participant M04 as APISentry
 
-    Dev->>Hub: Trigger Full Workspace Audit
-    Hub->>GW: POST /api/scan/all {target: "/path/to/repo"}
-    par Parallel Vector Scans
-        GW->>M02: POST /api/scan (Entropy & Key Search)
-        GW->>M04: POST /api/probe (Header & TLS Verification)
+    Analyst->>Hub: Trigger Full Audit
+    Hub->>GW: POST /api/scan/all
+    par Parallel Dispatch
+        GW->>M02: POST /api/scan (entropy search)
+        GW->>M04: POST /api/probe (header audit)
     end
-    M04-->>M04: Enforce SSRF Filter (Block RFC 1918 / Cloud Metadata)
-    M02-->>GW: Return Findings (Validated v1.0 Schema)
-    M04-->>GW: Return Findings (Validated v1.0 Schema)
-    GW-->>Hub: Aggregate JSON Telemetry + Health Matrix
-    Hub-->>Hub: Compute Blast Radius Cross-Correlation
-    Hub->>Dev: Render Floating Windows & Graph Updates
+    M04-->>M04: SSRF Guard — block RFC 1918
+    M02-->>GW: Findings v1.0 JSON
+    M04-->>GW: Findings v1.0 JSON
+    GW-->>Hub: Aggregated telemetry
+    Hub-->>Hub: Blast Radius correlation
+    Hub->>Analyst: Render floating windows + graph
 ```
 
----
-
-## ⚡ Technical Engineering Highlights
-
-### 1. Hardened SSRF Protection Engine (`APISentry`)
-When probing arbitrary web endpoints for TLS certificates and security headers (CSP, HSTS, CORS), tools risk becoming open Server-Side Request Forgery (SSRF) proxies. 
-* **Defense Strategy:** IP pre-resolution and strict routing table verification before socket invocation.
-* **Coverage:** Validates targets against all RFC 1918 private subnets (`10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`), loopback (`127.0.0.0/8`, `::1`), link-local (`169.254.0.0/16`), and AWS/GCP cloud metadata IP addresses (`169.254.169.254`, `metadata.google.internal`).
-* **DNS Rebinding Guard:** Resolves IP addresses immediately prior to connection, avoiding split-horizon cache poisoning.
-
-### 2. Shannon Entropy & False-Positive Elimination (`SecretWatch`)
-Static regex searching for API keys produces unmanageable false-positive rates on commit hashes and UUIDs.
-* **Mathematical Entropy Filter:** Implements Shannon entropy calculation:
-  $$H(X) = -\sum_{i=1}^{n} P(x_i) \log_2 P(x_i)$$
-* Strings matching high-entropy signatures ($H > 4.5$) are passed through a contextual validation filter (variable naming AST, test folder exclusion, and known checksum formats) before an alert is escalated.
-
-### 3. Multi-Format Declarative AST Engine (`InfraGuard` & `CloudPosture`)
-* Rather than brittle regex on infrastructure code, parsers generate declarative syntax trees across Dockerfiles, Kubernetes manifests, and Terraform HCL.
-* Validates CIS Benchmarks, non-root user enforcement (`USER nonroot`), read-only root filesystems, and unencrypted S3/Cloud Storage buckets.
-
-### 4. Typosquatting Detection with Levenshtein Distance (`SupplyWatch`)
-* Analyzes direct and transitive dependency trees against top 10,000 PyPI/npm packages.
-* Calculates Damerau-Levenshtein edit distance to detect malicious homoglyphs and typo-squatted attack packages (e.g., `requsts` vs `requests`).
+<br/>
 
 ---
 
-## 📜 Universal Finding Contract (`v1.0`)
+## ⚡ Engineering Deep Dives
 
-All 5 micro-modules emit findings strictly compliant with this standardized JSON schema:
+### 🛡 SSRF Firewall — APISentry
+
+APISentry probes live HTTP endpoints, which by definition makes it a potential SSRF vector. The firewall resolves all DNS entries **before** opening any socket, then rejects anything resolving into:
+
+```
+RFC 1918 Private:   10.0.0.0/8 · 172.16.0.0/12 · 192.168.0.0/16
+Loopback:           127.0.0.0/8 · ::1
+Link-Local:         169.254.0.0/16
+Cloud Metadata:     169.254.169.254 · metadata.google.internal
+Carrier-Grade NAT:  100.64.0.0/10
+```
+
+DNS rebinding is neutralized by resolving hostnames at connection time, not at request-parse time.
+
+---
+
+### 🔐 Shannon Entropy — SecretWatch
+
+Regex-only secret scanning is noisy. Commit hashes, UUIDs, and minified bundle names all look like secrets. SecretWatch layers a mathematical entropy gate on top:
+
+```
+H(X) = − Σ P(xᵢ) · log₂ P(xᵢ)
+```
+
+Strings clearing `H > 4.5` bits then pass through an AST context filter — variable names, test directories, and known checksum formats are excluded before an alert is raised.
+
+---
+
+### 📦 AST-Based Policy Engine — InfraGuard & CloudPosture
+
+Rather than regex over infrastructure files (fragile, path-dependent, bypass-prone), both modules build **declarative syntax trees** from Dockerfiles, Kubernetes YAML, and Terraform HCL before applying policy rules. This catches:
+
+- `USER root` or missing `USER` directive in Docker
+- Privileged containers and host-path mounts in K8s
+- `aws_s3_bucket` with `acl = "public-read"` in Terraform
+- Missing encryption-at-rest declarations in CloudFormation
+
+---
+
+### 🔍 Typosquatting — SupplyWatch
+
+Every package in `requirements.txt` and `package.json` is checked against the top 10,000 PyPI/npm packages by **Damerau-Levenshtein edit distance**. A distance of `1` on a popular package name (e.g. `requsts` → `requests`) generates a HIGH-severity supply chain alert.
+
+<br/>
+
+---
+
+## 📜 Universal Finding Contract
+
+Every module emits the same machine-readable schema — no custom parsing per tool:
 
 ```json
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "id": "SEC-SW-2026-0042",
   "module": "SupplyWatch",
-  "timestamp": "2026-11-20T06:57:00Z",
-  "title": "Typosquatting Candidate Detected: requsts",
+  "title": "Typosquatting Candidate: requsts",
   "severity": "HIGH",
   "risk_score": 45,
   "category": "supply_chain",
   "asset": "requirements.txt:14",
-  "evidence": "requsts==2.31.0 (Levenshtein distance: 1 to 'requests')",
-  "description": "Package 'requsts' closely mimics high-reputation library 'requests'.",
-  "remediation": "Replace 'requsts' with legitimate 'requests' from PyPI.",
-  "status": "open"
+  "evidence": "requsts==2.31.0  (edit distance 1 from 'requests')",
+  "remediation": "Replace with 'requests' from PyPI.",
+  "status": "open",
+  "timestamp": "2026-11-20T06:57:00Z"
 }
 ```
 
+**Risk Score Formula:** bounded at 100, computed as a logarithmic composite of `severity` × `confidence` × `exposure` — no unbounded summation.
+
+<br/>
+
 ---
 
-## 🧪 Testing Rigor & Quality Engineering
+## 🧪 Test Suite
 
-QuintOS maintains an exhaustive testing suite across all Python microservices and React frontends:
+Showcased contract & SSRF boundary tests run cleanly against the public interfaces:
 
 ```bash
-$ pytest --verbose
-============================= test session starts =============================
-platform win32 -- Python 3.11+, pytest-8.3.4
-collected 114 items
+$ cd docs/showcase-portfolio && pytest -v
 
-apisentry/api/tests/test_apisentry.py::TestIsPrivateTarget::test_ssrf_private_ip_blocked PASSED
-apisentry/api/tests/test_apisentry.py::TestIsPrivateTarget::test_ssrf_localhost_blocked PASSED
-apisentry/api/tests/test_apisentry.py::TestIsPrivateTarget::test_ssrf_cloud_metadata_blocked PASSED
-apisentry/api/tests/test_apisentry.py::TestAnalyseEndpoint::test_missing_hsts_flagged PASSED
-apisentry/api/tests/test_apisentry.py::TestAnalyseEndpoint::test_wildcard_cors_flagged PASSED
-secretwatch/api/tests/test_entropy.py::test_shannon_entropy_thresholds PASSED
-infraguard/api/tests/test_docker_parser.py::test_root_user_detection PASSED
-cloudposture/api/tests/test_terraform.py::test_public_bucket_flagged PASSED
-...
-============================= 114 passed in 2.14s =============================
+============================= test session starts =============================
+platform win32 — Python 3.14, pytest-8.3.4
+
+tests/test_scanner_contracts.py::test_valid_security_finding_contract        PASSED
+tests/test_scanner_contracts.py::test_risk_score_boundary_enforcement[-1]    PASSED
+tests/test_scanner_contracts.py::test_risk_score_boundary_enforcement[101]   PASSED
+tests/test_scanner_contracts.py::test_risk_score_boundary_enforcement[250]   PASSED
+tests/test_scanner_contracts.py::test_ssrf_disallowed_targets[10.0.0.1]     PASSED
+tests/test_scanner_contracts.py::test_ssrf_disallowed_targets[192.168.1.254] PASSED
+tests/test_scanner_contracts.py::test_ssrf_disallowed_targets[172.16.5.10]  PASSED
+tests/test_scanner_contracts.py::test_ssrf_disallowed_targets[169.254.169.254] PASSED
+tests/test_scanner_contracts.py::test_ssrf_disallowed_targets[metadata.google.internal] PASSED
+tests/test_scanner_contracts.py::test_ssrf_disallowed_targets[localhost]     PASSED
+tests/test_scanner_contracts.py::test_ssrf_disallow_unsupported_schemes      PASSED
+tests/test_scanner_contracts.py::test_audit_target_default_values            PASSED
+
+============================= 12 passed in 0.14s ==============================
 ```
+
+The full private test suite (across all 5 modules + gateway) covers **114 tests** — available on request during technical review.
+
+<br/>
 
 ---
 
-## 📂 Repository Structure
+## 📂 Repo Structure
 
 ```
 quint-0s-portfolio/
-├── contracts/                     # Curated core abstractions & interfaces
-│   ├── base_scanner.py            # Abstract scanner template method pattern
-│   ├── schemas.py                 # Pydantic v2 universal contracts
-│   └── ssrf_guard.py              # Production SSRF firewall module
-├── tests/                         # Architectural & schema test suites
-│   └── test_scanner_contracts.py  # Boundary tests & schema validation
-├── screenshots/                   # High-resolution UI captures
-├── ARCHITECTURE.md                # System design & threat model
-└── README.md                      # Project documentation
+├── screenshots/                  ← Full-resolution UI captures
+│   ├── wallpaper.png             ← Sentinel Hub desktop
+│   ├── supplywatch.png           ← M01 supply chain audit
+│   ├── secretwatch.png           ← M02 entropy detection
+│   ├── infraguard.png            ← M03 container hygiene
+│   ├── apisentry.png             ← M04 live API header audit
+│   ├── cloudposture.png          ← M05 IaC misconfig scan
+│   └── blast-radius.png          ← Topological attack graph
+│
+├── contracts/                    ← Curated public interfaces
+│   ├── schemas.py                ← Pydantic v2 universal contracts
+│   ├── base_scanner.py           ← Abstract async scanner pattern
+│   └── ssrf_guard.py             ← SSRF firewall (production)
+│
+├── tests/
+│   └── test_scanner_contracts.py ← Boundary & schema validation
+│
+├── ARCHITECTURE.md               ← STRIDE threat model + DFDs
+├── pytest.ini
+└── LICENSE                       ← Proprietary portfolio evaluation
 ```
+
+<br/>
 
 ---
 
-## 👤 Author & Contact
+## 👤 Author
 
-**Nikhil Manvi**  
-*Cybersecurity Specialist & Full-Stack Systems Engineer*  
-- **GitHub:** [@nikhilmanvi360](https://github.com/nikhilmanvi360)  
-- **Project Inquiry / Full Code Access:** Inquiries for technical evaluation, code review, or collaboration can be requested via GitHub.
+<p align="center">
+  <strong>Nikhil Manvi</strong><br/>
+  Cybersecurity Systems Engineer &amp; Full-Stack Developer<br/><br/>
+  <a href="https://github.com/nikhilmanvi360">
+    <img src="https://img.shields.io/badge/GitHub-nikhilmanvi360-181717?style=for-the-badge&logo=github" />
+  </a>
+  &nbsp;&nbsp;
+  <img src="https://img.shields.io/badge/Full%20Code%20Access-Available%20on%20Request-00e5ff?style=for-the-badge" />
+</p>
+
+<p align="center">
+  <sub>
+    Core scanning engines, heuristic models, and test suites are available for review during hiring or collaboration discussions.<br/>
+    Open an issue or reach out via GitHub for access.
+  </sub>
+</p>
+
+<br/>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/%E2%AC%A1%20QUINTOS-CYBER%20COMMAND%20CENTER-00e5ff?style=for-the-badge" />
+</p>
