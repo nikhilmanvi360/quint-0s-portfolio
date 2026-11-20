@@ -6,8 +6,8 @@
 </p>
 
 [![Architecture](https://img.shields.io/badge/Architecture-Modular%20Microservices-00e5ff?style=for-the-badge&logo=fastapi)](ARCHITECTURE.md)
-[![Frontend](https://img.shields.io/badge/Frontend-React%2018%20%7C%20Tailwind-3b82f6?style=for-the-badge&logo=react)](sentinel-hub)
-[![Test Suite](https://img.shields.io/badge/Tests-114%20Passed%20%7C%20Pytest-10b981?style=for-the-badge&logo=pytest)](tests)
+[![Frontend](https://img.shields.io/badge/Frontend-React%2018%20%7C%20Tailwind-3b82f6?style=for-the-badge&logo=react)](#-visual-showcase--desktop-experience)
+[![Test Suite](https://img.shields.io/badge/Contracts-12%20Passed%20%7C%20Pytest-10b981?style=for-the-badge&logo=pytest)](tests)
 [![Security Posture](https://img.shields.io/badge/SSRF%20Guard-Enforced%20RFC1918-ec4899?style=for-the-badge&logo=shield)](contracts/ssrf_guard.py)
 [![License](https://img.shields.io/badge/License-Proprietary%20%2F%20Portfolio%20Evaluation-zinc?style=for-the-badge)](LICENSE)
 
