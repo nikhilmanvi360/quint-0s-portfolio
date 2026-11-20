@@ -162,7 +162,9 @@ Security tools are almost always isolated — you run a secret scanner here, a d
 
 <p align="center">
   <strong>🖥️ Sentinel Hub — The Unified Desktop</strong><br/>
-  <img src="screenshots/wallpaper.png" width="100%" alt="Sentinel Hub Desktop" /><br/>
+  <a href="https://tenor.com/view/the-quintessential-quintuplets-tqq-gif-17711560458767179904">
+    <img src="https://media1.tenor.com/m/9cwaZbqsIIAAAAAC/the-quintessential-quintuplets-tqq.gif" width="100%" alt="QuintOS Command Center Desktop Demo" />
+  </a><br/>
   <sub>All five security modules visible as floating windows from a single command center.</sub>
 </p>
 
