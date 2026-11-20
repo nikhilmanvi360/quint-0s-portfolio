@@ -420,7 +420,11 @@ Pipeline verdict:    BLOCKED — resolve CRITICAL findings before merge
     Open an issue or reach out via GitHub for access.
   </sub>
 </p>
-
+<p align="center">
+  <sub>
+   This anime was part of my childhood so wanted to integrate it in my work so . adding this concept made this project more interesting and close . its so faar my fav work its still needs polishing security auditing and it contains more ai slop ..in future i am planing to remove all ai genrated code in tools and replace them with rust and go...so look forward to it .!!! 
+  </sub>
+</p>
 <br/>
 
 <p align="center">
